@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}查看邮件 - OA邮箱系统{% endblock %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>邮件详情</h2>
+        <a href="{{ url_for('inbox') }}" class="btn">返回收件箱</a>
+    </div>
+    
+    <div style="border-bottom: 1px solid #eee; padding-bottom: 1rem; margin-bottom: 2rem;">
+        <h3>{{ email[0] }}</h3>
+        <p><strong>发件人:</strong> {{ email[4] }}</p>
+        <p><strong>收件人:</strong> {{ email[5] }}</p>
+        <p><strong>时间:</strong> {{ email[2] }}</p>
+        {% if email[3] %}
+        <p><strong>附件:</strong> {{ email[3] }}</p>
+        {% endif %}
+    </div>
+    
+    <div style="white-space: pre-wrap; line-height: 1.6;">
+        {{ email[1] }}
+    </div>
+</div>
+{% endblock %} 
